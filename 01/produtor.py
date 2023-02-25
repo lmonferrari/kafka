@@ -1,9 +1,8 @@
-import random
+from kafka3 import KafkaProducer
 
-from kafka import KafkaProducer as kp
+producer = KafkaProducer(bootstrap_servers='localhost:9092')
 
-producer = kp(bootstrap_servers="127.0.0.1:9092")
-
-for x in range(10):
-    n = random.random()
-    producer.send("mensagens", key=b"Chave %d" % x, value=b"Mensagem %f " % n)
+print("Gerando info...")
+for _ in range(100):
+    print()
+    producer.send(topic='mensagens', value=b'some_message_bytes')

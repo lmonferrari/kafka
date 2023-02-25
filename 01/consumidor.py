@@ -1,8 +1,6 @@
-from kafka import KafkaConsumer as kc
+from kafka3 import KafkaConsumer
 
-consumer = kc("mensagens", bootstrap_servers="127.0.0.1:9092",
-              consumer_timeout_ms=1000)
-
-for message in consumer:
-    print('a')
-    print(message.topic)
+consumer = KafkaConsumer('mensagens')
+for msg in consumer:
+    print(msg.topic)
+    print(msg.value)

@@ -2,3 +2,4 @@
 .env
 .venv
 01/kafkavenv
+01/__pycache__/
